@@ -1,0 +1,6 @@
+.DS_Store
+.idea
+execution.details
+tmp.ipc
+planxml.txt
+*.pyc 
