@@ -34,15 +34,22 @@ class PlanDispatcher(Executor):
     """docstring for PlanDispatcher."""
     def __init__(self):
         super(PlanDispatcher, self).__init__()
-        self.steps = []
+        self.steps = [] 
 
     def initialize(self,services):
+        self.services = services
         self.steps = planner.make_plan(services.pddl.domain_path, services.pddl.problem_path)
 
     def next_action(self):
+        print self.services.perception.get_state()
         if len(self.steps)>0:
             return self.steps.pop(0).lower()
         return None
 
-
+    def bis(self):
+        execution_stack = 0
+        
+        return 0
+    
+    
 print LocalSimulator().run(domain_path, problem_path, PlanDispatcher())
