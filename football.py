@@ -15,7 +15,6 @@ class BIUExecutor(Executor):
         self.option = opt
         self.services = []
         self.current_state = []
-        self.old_state = []
         self.football_map = {'start_tile': (1, 0),
                              'g0': (0, 1), 'g1': (0, 2), 'g2': (0, 3), 'g3': (0, 4),
                              'c0': (1, 1), 'c1': (1, 2), 'c2': (1, 3), 'c3': (1, 4),
@@ -38,7 +37,6 @@ class BIUExecutor(Executor):
 
     def next_action(self):
 
-        self.old_state = self.current_state
         self.current_state = self.services.perception.get_state()
 
         count_ball_in_goal_tile = len([ball for ball in self.current_state['at-ball'] if ball[1] == 'goal_tile'])
